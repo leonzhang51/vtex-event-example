@@ -6,9 +6,10 @@ import type {
 } from '@vtex/api'
 import { Service } from '@vtex/api'
 
-import { example } from './events/example'
+//import { example } from './events/example'
 import { createSendEvent } from './routes/notify'
 import { getCacheContext, setCacheContext } from './utils/cachedContext'
+import { updateLiveUsers } from './events/liveUsersUpdate'
 
 const TREE_SECONDS_MS = 3 * 1000
 const CONCURRENCY = 10
@@ -24,7 +25,7 @@ declare global {
 function sendEventWithTimer() {
   setInterval(function () {
     const context = getCacheContext()
-
+    updateLiveUsers();
     if (!context) {
       console.log('no context in memory')
 
@@ -52,7 +53,7 @@ export default new Service<IOClients, State, ParamsContext>({
     },
   },
   events: {
-    example,
+    liveUsersUpdate: updateLiveUsers,
   },
   routes: {
     hcheck: (ctx: any) => {

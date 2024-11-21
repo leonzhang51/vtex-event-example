@@ -1,6 +1,6 @@
 {
-  "name": "CHANGE_ME",
-  "private": true,
+  "name": "events-example",
+  "private": false,
   "license": "UNLICENSED",
   "scripts": {
     "lint": "eslint --ext js,jsx,ts,tsx .",

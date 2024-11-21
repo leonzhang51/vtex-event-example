@@ -6,8 +6,8 @@
   "maxReplicas": 10,
   "workers": 4,
   "events": {
-    "example": {
-      "sender": "vtex.events-example",
+    "liveUsersUpdate": {
+      "sender": "uscertification09rona.events-example",
       "keys": ["send-event"]
     }
   },
